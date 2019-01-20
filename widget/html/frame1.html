@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+      <title>title</title>
+      <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+      <style>
+      span {
+          padding: 10px 15px;
+          margin: 10px;
+          display: inline-block;
+          background-color: #e8e8e8;
+      }
+          body{
+
+          }
+
+          /*.brb {border-right: 1px solid #E1E4E9;border-bottom: 1px solid #E1E4E9;}*/
+      </style>
+  </head>
+  <body>
+<span tapmode="hover" onclick="fnOpen()">openplay</span>
+
+
+
+  </body>
+  <script type="text/javascript" src="../script/api.js"></script>
+  <script type="text/javascript">
+  var videoPlayer;
+
+      apiready = function(){
+        videoPlayer = api.require('videoPlayer');
+      };
+      function fnOpen(){
+
+        api.openVideo({
+            url: 'http://113.57.128.2:7999/live/ch_20037/iptvx650cboy.m3u8'
+        });
+
+}
+
+
+  </script>
+  </html>

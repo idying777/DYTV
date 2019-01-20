@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style>
+        body {}
+    </style>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+  var UITemplate = api.require("UITemplate");
+  UITemplate.openView({
+  name: 'scrollpicture',
+  url: 'pages/uitscrollpicture/scrollpicture',
+  rect: {
+      marginTop: 0,
+      h: 'auto',
+      w: 'auto'
+  },
+  data: {  // 设置默认的初始化数据
+      list: [
+          {url: '../image/tv4.png'},
+          {url: '../image/tv4.png'},
+          {url: '../image/tv4.png'},
+          {url: '../image/tv4.png'}
+      ]
+  }
+  },function(ret,err){
+  if (ret) {
+      if ('itemChanged' == ret.type) {
+          // 执行视图切换逻辑代码
+          alert('当前索引值 index=='+ret.index)
+      }
+      else if ('itemClicked' == ret.key) {
+          // 执行视图点击逻辑代码
+          alert('当前索引值 index=='+ret.index)
+      }
+  }
+  });
+</script>
+
+</html>

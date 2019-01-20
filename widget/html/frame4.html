@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title>title</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<style>
+			body {
+			}
+			html, body {
+				height: 100%
+			}
+			body {
+				background-color: #fff;
+				margin: 0;
+			}
+			#wrap {
+				height: 100%;
+				position: relative;
+			}
+			#header {
+				padding-top: 20px;
+				background-color: #5082c2;
+				height: 44px;
+				position: relative;
+			}
+			#header h1 {
+				font-size: 20px;
+				height: 44px;
+				line-height: 44px;
+				margin: 0em;
+				color: #fff;
+				margin-left: 100px;
+				margin-right: 100px;
+				text-align: center;
+			}
+			#main {
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-box-pack: center;
+			}
+			a.button {
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+				height: 32px;
+				margin: 8px;
+				background-color: rgba(240, 240, 240, 1.0);
+				border-color: rgba(220, 220, 220, 1.0);
+				border-width: 2px;
+				border-style: solid;
+			}
+			a.active {
+				background-color: rgba(240, 240, 240, 0.7);
+			}
+		</style>
+	</head>
+	<body>
+		<a class="button" tapmode="active" onclick="fnOpen()">打开</a>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript">
+		apiready = function() {
+		};
+		function fnOpen() {
+			var videoPlayer = api.require('videoPlayer');
+
+			videoPlayer.open({
+				//path : 'http://7o50kb.com2.z0.glb.qiniucdn.com/c1.1.mp4',
+        rect : {
+                                       x : 0,
+                                       y : 0,
+                                       w : 400,
+                                       h : 400
+
+                               },
+				path:'http://7ynwhl.com1.z0.glb.clouddn.com/apicloud/66c0206cd4a74a9170c5deeb5a993955.mp4',
+				scalingMode : 'scaleModeFill',
+				fixedOn:api.frameName
+			}, function(ret, err) {
+				if (ret.status) {
+					//alert(JSON.stringify(ret));
+          // videoPlayer.fullScreen();
+					// fnAddEventListener();
+          videoPlayer.addEventListener({
+    				name : 'click'
+    			}, function(ret, err) {
+    				if (ret) {
+    					// alert("nice");
+    					console.log("abc");
+    				} else {
+    					alert(JSON.stringify(err));
+    				}
+    			});
+
+				} else {
+					alert(JSON.stringify(err));
+				}
+			});
+
+		}
+
+		function fnAddEventListener() {
+			var videoPlayer = api.require('videoPlayer');
+			videoPlayer.addEventListener({
+				name : 'click'
+			}, function(ret, err) {
+				if (ret) {
+					// alert("nice");
+					console.log("abc");
+				} else {
+					alert(JSON.stringify(err));
+				}
+			});
+		}
+	</script>
+</html>

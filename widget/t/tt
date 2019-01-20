@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style>
+        body {}
+    </style>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+      alert("ww");
+        api.ajax({
+            url: 'http://192.168.10.188:7998/iptv/10760.xml',
+            method: 'get',
+            dataType: 'xml',
+            charset: 'gb2312',
+        }, function(ret, err) {
+            if (ret) {
+                var parser = new DOMParser();
+                var xmlDom = parser.parseFromString(ret, "text/xml");
+                x = xmlDom.getElementsByTagName('eventlist')
+                alert("sss");
+                for (i = 0; i < x.length; i++)
+                for(j=1;j<x[i].childNodes.length;j+=2)
+                    alert(x[i].childNodes[j].getAttribute("title"))
+
+            } else {
+
+                alert("ss");
+            }
+        });
+    };
+</script>
+
+</html>

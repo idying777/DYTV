@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>文档</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../aui-20170109-v2.1/css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../aui-20170109-v2.1/css/aui-slide.css" />
+    <link rel="stylesheet" href="../css/swiper.min.css">
+
+
+    <style>
+    .empty{ text-align: center; padding: 120px 0; }
+        .np {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .recommand_card {
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            float: left;
+            width: 33.3%;
+            padding-left: 5px;
+            padding-right: 0px;
+            text-align: center;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .recommand_card_below {
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            float: left;
+            width: 50%;
+            padding-left: 5px;
+            padding-right: 0px;
+            text-align: center;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .recommand_card img {
+            width: 100%;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 10%;
+            margin: 20px auto;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            height: 1%;
+            /* Center slide text vertically */
+            /*display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;*/
+        }
+        /*.tb{
+          height: 50px;
+        }*/
+    </style>
+</head>
+
+<body>
+  <ul class="recommand_row">
+  		<li class="recommand_card" tapmod="card_hover" >
+  			<div  class="innerCard">
+  				<img  onclick="window.location.href='http://fanyi.youdao.com/'" src="../image/exm.jpg" />
+  				<!-- <div class="videotitle">林依晨订婚宴现场曝光</div> -->
+  			</div>
+  		</li>
+  		<li class="recommand_card"  tapmod="card_hover" onclick="window.location.href='https://www.baidu.com/?tn=80035161_1_dg'">
+  			<div class="innerCard">
+  				<img src="../image/exm.jpg" alt=""/>
+  			</div>
+  		</li>
+      <li class="recommand_card"  tapmod="card_hover" onclick="window.location.href='https://www.baidu.com/?tn=80035161_1_dg'">
+  			<div class="innerCard">
+  				<img src="../image/exm.jpg" alt=""/>
+  			</div>
+  		</li>
+  	</ul>
+直播列表
+    <div class="np">
+        <ul class="aui-list aui-media-list">
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <img id="img_tag1" />
+                                <p stype="font-weight:bold;"></p>
+                                <marquee behavior="scroll" direction="left" style="color:red">
+                                </marquee>
+                            </div>
+                            <div class="swiper-slide">
+                                <img id="img_tag2" />
+                                <p stype="font-weight:bold;"></p>
+                                <marquee behavior="scroll" direction="left" style="color:red">
+                                </marquee>
+                            </div>
+                            <div class="swiper-slide">
+                                <img id="img_tag3" />
+                                <p stype="font-weight:bold;"></p>
+                                <marquee behavior="scroll" direction="left" style="color:red">
+                                </marquee>
+                            </div>
+                            <div class="swiper-slide">
+                                <img id="img_tag4" />
+                                <p stype="font-weight:bold;"></p>
+                                <marquee behavior="scroll" direction="left" style="color:red">
+                                </marquee>
+                            </div>
+                            <div class="swiper-slide">
+                                <img id="img_tag5" />
+                                <p stype="font-weight:bold;"></p>
+                                <marquee behavior="scroll" direction="left" style="color:red">
+                                </marquee>
+                            </div>
+                        </div>
+
+                    </div>
+            </li>
+        </ul>
+        </div>
+      </div>
+      <div class="np">
+          <ul class="aui-list aui-media-list">
+              <li class="aui-list-item">
+                  <div class="aui-list-item-inner">
+
+                      <div class="swiper-container">
+                          <div class="swiper-wrapper">
+                              <div onclick="saveinfo(1)" class="swiper-slide">
+                                  <img id="img_1" />
+                                  <p stype="font-weight:bold;"></p>
+                                  <marquee behavior="scroll" direction="left" style="color:red">
+                                  </marquee>
+                              </div>
+                              <div onclick="saveinfo(3)" class="swiper-slide">
+                                  <img id="img_3" />
+                                  <p stype="font-weight:bold;"></p>
+                                  <marquee behavior="scroll" direction="left" style="color:red">
+                                  </marquee>
+                              </div>
+                              <div onclick="saveinfo(5)" class="swiper-slide">
+                                  <img id="img_5" />
+                                  <p stype="font-weight:bold;"></p>
+                                  <marquee behavior="scroll" direction="left" style="color:red">
+                                  </marquee>
+                              </div>
+                              <div onclick="saveinfo(7)" class="swiper-slide">
+                                  <img id="img_7" />
+                                  <p stype="font-weight:bold;"></p>
+                                  <marquee behavior="scroll" direction="left" style="color:red">
+                                  </marquee>
+                              </div>
+                              <div onclick="saveinfo(9)" class="swiper-slide">
+                                  <img id="img_9" />
+                                  <p stype="font-weight:bold;"></p>
+                                  <marquee behavior="scroll" direction="left" style="color:red">
+                                  </marquee>
+                              </div>
+                              <div onclick="saveinfo(11)" class="swiper-slide">
+                                  <img id="img_11" />
+                                  <p stype="font-weight:bold;"></p>
+                                  <marquee behavior="scroll" direction="left" style="color:red">
+                                  </marquee>
+                              </div>
+                              <div onclick="saveinfo(13)" class="swiper-slide">
+                                  <img id="img_13" />
+                                  <p stype="font-weight:bold;"></p>
+                                  <marquee behavior="scroll" direction="left" style="color:red">
+                                  </marquee>
+                              </div>
+                              <div onclick="saveinfo(15)" class="swiper-slide">
+                                  <img id="img_15" />
+                                  <p stype="font-weight:bold;"></p>
+                                  <marquee behavior="scroll" direction="left" style="color:red">
+                                  </marquee>
+                              </div>
+                              <div onclick="saveinfo(17)" class="swiper-slide">
+                                  <img id="img_17" />
+                                  <p stype="font-weight:bold;"></p>
+                                  <marquee behavior="scroll" direction="left" style="color:red">
+                                  </marquee>
+                              </div>
+                              <div onclick="saveinfo(19)" class="swiper-slide">
+                                  <img id="img_19" />
+                                  <p stype="font-weight:bold;"></p>
+                                  <marquee behavior="scroll" direction="left" style="color:red">
+                                  </marquee>
+                              </div>
+                              <div onclick="saveinfo(21)" class="swiper-slide">
+                                  <img id="img_21" />
+                                  <p stype="font-weight:bold;"></p>
+                                  <marquee behavior="scroll" direction="left" style="color:red">
+                                  </marquee>
+                              </div>
+                              <div onclick="saveinfo(23)" class="swiper-slide">
+                                  <img id="img_23" />
+                                  <p stype="font-weight:bold;"></p>
+                                  <marquee behavior="scroll" direction="left" style="color:red">
+                                  </marquee>
+                              </div>
+                              <div onclick="saveinfo(25)" class="swiper-slide">
+                                  <img id="img_25" />
+                                  <p stype="font-weight:bold;"></p>
+                                  <marquee behavior="scroll" direction="left" style="color:red">
+                                  </marquee>
+                              </div>
+                              <div onclick="saveinfo(27)" class="swiper-slide">
+                                  <img id="img_27" />
+                                  <p stype="font-weight:bold;"></p>
+                                  <marquee behavior="scroll" direction="left" style="color:red">
+                                  </marquee>
+                              </div>
+                              <div onclick="saveinfo(29)" class="swiper-slide">
+                                  <img id="img_29" />
+                                  <p stype="font-weight:bold;"></p>
+                                  <marquee behavior="scroll" direction="left" style="color:red">
+                                  </marquee>
+                              </div>
+                              <div onclick="saveinfo(31)" class="swiper-slide">
+                                  <img id="img_31" />
+                                  <p stype="font-weight:bold;"></p>
+                                  <marquee behavior="scroll" direction="left" style="color:red">
+                                  </marquee>
+                              </div>
+                          </div>
+
+                      </div>
+              </li>
+          </ul>
+          </div>
+        </div>
+        <!--<img src='../image/exm.jpg' onclick="showinfo()"></img>-->
+      <div id="aui-slide">
+            <div class="aui-slide-wrap" >
+
+                <div class="aui-slide-node bg-dark">
+                    <img onclick="window.location.href='https://www.baidu.com/?tn=80035161_1_dg'" src="../image/exm.jpg" />
+                </div>
+                <div  class="aui-slide-node bg-dark">
+                    <img onclick="fnPlay()" src="../image/exm.jpg" />
+                </div>
+                <div class="aui-slide-node bg-dark">
+                    <img src="../image/exm.jpg" />
+                </div>
+            </div>
+            <div class="aui-slide-page-wrap"></div>
+        </div>
+        <ul class="recommand_row ">
+      		<li class="recommand_card_below" tapmod="card_hover" >
+      			<div  class="innerCard"  onclick="window.location.href='https://www.baidu.com/?tn=80035161_1_dg'" >
+      				<img src="../image/exm.jpg" />
+      				<!-- <div class="videotitle">林依晨订婚宴现场曝光</div> -->
+      			</div>
+      		</li>
+      		<li class="recommand_card_below"  tapmod="card_hover" onclick="window.location.href='https://www.baidu.com/?tn=80035161_1_dg'">
+      			<div class="innerCard">
+      				<img src="../image/exm.jpg" alt=""/>
+      			</div>
+      		</li>
+      	</ul>
+<div class="aui-searchbar" id="search">
+            <div class="aui-searchbar-input aui-border-radius">
+                <i class="aui-iconfont aui-icon-search"></i>
+                <input type="search" placeholder="请输入搜索内容" id="search-input">
+                <div class="aui-searchbar-clear-btn">
+                    <i class="aui-iconfont aui-icon-close"></i>
+                </div>
+            </div>
+            <div class="aui-searchbar-btn" tapmode>取消</div>
+        </div>
+</body>
+
+</html>
+<script src="../script/swiper.min.js"></script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../aui-20170109-v2.1/script/api.js"></script>
+<script type="text/javascript" src="../aui-20170109-v2.1/script/aui-slide.js"></script>
+
+
+<script type="text/javascript">
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 4,
+        paginationClickable: false,
+        spaceBetween: 30,
+        freeMode: true
+    });
+    var videoPlayer;
+
+
+
+    apiready = function() {
+        loading()
+        var obj = api.require('dlna');
+        videoPlayer = api.require('videoPlayer');
+        var slide = new auiSlide({
+            container: document.getElementById("aui-slide"),
+            // "width":300,
+            "height": 160,
+            "speed": 300,
+            "pageShow": true,
+            "pageStyle": 'dot',
+            "loop": true,
+            "autoPlay": 3000, //自动播放
+            'dotPosition': 'center',
+            currentPage: currentFun
+        })
+
+        function currentFun(index) {
+            // console.log(index);
+        }
+        api.addEventListener({
+            name: "keyback"
+        }, function(ret, err) {
+            api.closeWin();
+
+        });
+    }
+
+    function saveinfo(index){
+      var flag = true
+      var temp = 5
+      for(i=2;i<=5;i++){
+        if(index == $api.getStorage('tag'+i)){
+          temp = i
+        }
+        if(index == $api.getStorage('tag1'))
+          flag = false
+      }
+      if(flag){
+        var img_id = 'img_' + index
+        var imgdom = $api.byId(img_id)
+        var usual_img = $api.byId('img_tag1');
+        for(i=temp;i>=2;i--){
+          j = i - 1
+          var before_img = $api.byId('img_tag'+j);
+          var current_img = $api.byId('img_tag'+i);
+          var before_tag = $api.attr(before_img,'tag')
+          $api.attr(current_img,'tag',before_tag)
+          $api.setStorage('tag'+i, before_tag);
+
+        }
+        $api.attr(usual_img,'tag',index)
+        $api.setStorage('tag1', index);
+      }
+    }
+
+
+    function showinfo(){
+      for(i=1;i<=5;i++){
+        var tag = 'tag' + i
+        alert($api.getStorage(tag))
+      }
+    }
+
+    function getepg(str,path,index){
+        api.ajax({
+            url: path,
+            method: 'get',
+            dataType: 'xml',
+            charset: 'gb2312',
+        }, function(ret, err) {
+            if (ret) {
+                var parser = new DOMParser();
+                var xmlDom = parser.parseFromString(ret, "text/xml");
+                x = xmlDom.getElementsByTagName('eventlist')
+                var image = $api.byId(str+index);
+                var p2 = $api.next($api.next(image));
+                //var title = x[0].childNodes[1].getAttribute("title")?x[0].childNodes[1].getAttribute("title"):'无节目'
+                var title = 'test epg'
+                $api.text(p2,title)
+            } else {
+            }
+        });
+    }
+    function fnPlay(str_path) {
+      videoPlayer.open({
+          rect: {
+              x: 0,
+              y: 0,
+              w: api.winWidth,
+              h: api.winHeight
+
+          },
+          //path: 'http://7o50kb.com2.z0.glb.qiniucdn.com/c1.1.mp4',
+          path : str_path,
+          scalingMode: 'scaleToFill',
+          autoPlay: true,
+          fixedOn: api.frameName,
+          fixed: false
+      }, function(ret, err) {
+          if (ret.status) {
+              // console.log(JSON.stringify(ret));
+            fnOpenContrlframe(str_path);
+          } else {
+              console.log(JSON.stringify(err));
+          }
+      });
+      videoPlayer.addEventListener({
+          name: 'doubleClick'
+      }, function(ret, err) {
+          if (ret) {
+              //fnOpenContrlframe();
+          }
+      });
+    }
+    function fnOpenContrlframe(path) {
+        api.openFrame({
+            name: 'videocontrl',
+            url: 'videocontrl.html',
+            rect: {
+                x: 0,
+                y: 0,
+                w: 'auto',
+                h: 'auto'
+
+            },
+            pageParam:{
+              video_path : path,
+              player : videoPlayer
+            },
+            bounces: false,
+            bgColor: 'rgba(0,0,0,0)',
+            vScrollBarEnabled: false,
+            hScrollBarEnabled: false
+        });
+
+        // videoPlayer.fullScreen();
+
+    }
+    function fnvBack() {
+
+        api.closeFrame({
+          name:'videocontrl'
+        });
+      videoPlayer.close();
+    }
+    function loading(){
+      for(i=1;i<=5;i++){
+        $api.attr($api.byId('img_tag'+i),"tag",$api.getStorage('tag'+i))
+      }
+      api.ajax({
+          url: 'http://113.57.128.2:7998/iptv/iptvx650cboy.xml',
+          method: 'get',
+          dataType: 'xml',
+          charset: 'gb2312',
+      }, function(ret, err) {
+          if (ret) {
+              var parser = new DOMParser();
+              var xmlDom = parser.parseFromString(ret, "text/xml");
+              x = xmlDom.getElementsByTagName('group')
+              for (j = 1; j <= 31; j += 2) {
+                  var epgpath = "http://113.57.128.2:7998/iptv/"+x[0].childNodes[j].getAttribute("id")+".xml"
+                  var str = "http://113.57.128.2:7998/iptv/taibiao";
+                  var str_path = "fnPlay('"+x[0].childNodes[j].getAttribute("unicast")+"')";
+                  var p1_str = x[0].childNodes[j].getAttribute("name");
+                  if (x[0].childNodes[j].getAttribute("taibiao") == "1") {
+                      str += ("-" + x[0].childNodes[j].getAttribute("id") + ".jpg");
+                  } else {
+                      str += ".jpg";
+                  }
+                  for(i=1;i<=5;i++){
+                    if(j == $api.getStorage('tag'+i)){
+                        var img_tag_dom = $api.byId('img_tag'+i);
+                        var img_tag_dom_next = $api.next(img_tag_dom)
+                        $api.attr(img_tag_dom,'src',str)
+                        $api.attr(img_tag_dom,"onclick",str_path)
+                        $api.text(img_tag_dom_next,p1_str)
+                        getepg('img_tag',epgpath,i)
+                    }
+                  }
+                  // var unicast = "window.location.href='" + x[0].childNodes[j].getAttribute("unicast") + "'";
+                  var image_id = 'img_' + j;
+                  var image = $api.byId(image_id);
+                  var next_p1 = $api.next(image);
+                  $api.attr(image, "src", str);
+                  $api.attr(image,"onclick",str_path)
+                  $api.text(next_p1,p1_str);
+                  // $api.attr(image,"onclick",unicast);
+                  //window.location.href='http://113.57.128.2:7999/live/ch_20037/iptvx650cboy.m3u8'
+                  getepg('img_',epgpath,j)
+              }
+
+          } else {
+              alert("false");
+          }
+      });
+    }
+</script>
