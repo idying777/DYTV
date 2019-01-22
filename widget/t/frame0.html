@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../aui-20170109-v2.1/css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../aui-20170109-v2.1/css/aui-slide.css" />
+    <link rel="stylesheet" href="../css/swiper.min.css">
+
+    <!-- Demo styles -->
+    <style>
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 10%;
+            margin: 20px auto;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            height: 1%;
+            /* Center slide text vertically */
+            /*display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;*/
+        }
+        /*.tb{
+      height: 50px;
+    }*/
+    </style>
+</head>
+
+<body>
+    <!-- Swiper -->
+    <ul class="aui-list aui-media-list">
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <img onclick="fnPlay1()" id="img_1" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img onclick="fnPlay3()" id="img_3" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img onclick="fnPlay5()" id="img_5" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img onclick="fnPlay7()" id="img_7" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img onclick="fnPlay9()" id="img_9" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img onclick="fnPlay11()" id="img_11" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img onclick="fnPlay13()" id="img_13" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img onclick="fnPlay15()" id="img_15" />
+                        </div>
+                    </div>
+
+                </div>
+        </li>
+    </ul>
+
+
+    <!-- Swiper JS -->
+    <script src="../script/swiper.min.js"></script>
+    <script type="text/javascript" src="../script/api.js"></script>
+    <script type="text/javascript" src="../aui-20170109-v2.1/script/api.js"></script>
+    <script type="text/javascript" src="../aui-20170109-v2.1/script/aui-slide.js"></script>
+
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            slidesPerView: 4,
+            paginationClickable: false,
+            spaceBetween: 30,
+            freeMode: true
+        });
+        var videoPlayer;
+        apiready = function() {
+
+            api.ajax({
+                url: 'http://113.57.128.2:7998/iptv/iptvx650cboy.xml',
+                method: 'get',
+                dataType: 'xml',
+                charset: 'gb2312',
+            }, function(ret, err) {
+                if (ret) {
+                    var parser = new DOMParser();
+                    var xmlDom = parser.parseFromString(ret, "text/xml");
+                    x = xmlDom.getElementsByTagName('group')
+                    for (j = 1; j <= 15; j += 2) {
+                        var str = "http://113.57.128.2:7998/iptv/taibiao";
+                        if (x[0].childNodes[j].getAttribute("taibiao") == "1") {
+                            str += ("-" + x[0].childNodes[j].getAttribute("id") + ".jpg");
+                        } else {
+                            str += ".jpg";
+                        }
+                        // var unicast = "window.location.href='" + x[0].childNodes[j].getAttribute("unicast") + "'";
+                        var zbpath = x[0].childNodes[j].getAttribute("unicast");
+                        var image_id = 'img_' + j;
+                        var image = $api.byId(image_id);
+                        $api.attr(image, "src", str);
+                        // $api.attr(image,"onclick",unicast);
+
+
+                    }
+
+                } else {
+                    alert("false");
+                }
+            });
+
+            videoPlayer = api.require('videoPlayer');
+            var slide = new auiSlide({
+                container: document.getElementById("aui-slide"),
+                // "width":300,
+                "height": 160,
+                "speed": 300,
+                "pageShow": true,
+                "pageStyle": 'dot',
+                "loop": true,
+                "autoPlay": 3000, //自动播放
+                'dotPosition': 'center',
+                currentPage: currentFun
+            })
+
+            function currentFun(index) {
+                // console.log(index);
+            }
+            api.addEventListener({
+                name: "keyback"
+            }, function(ret, err) {
+                api.closeWin();
+
+            });
+        }
+
+        function fnPlay1() {
+            var videoPlayer = api.require('videoPlayer');
+            videoPlayer.openPlay({
+                // rect: {
+                //     x: 0,
+                //     y: 0,
+                //     w: 320,
+                //     h: 250
+                // },
+                texts: {
+                    head: {
+                        title: '顶部文字'
+                    }
+                },
+                styles: {
+                    head: {
+                        bg: 'rgba(0.5,0.5,0.5,0.7)',
+                        height: 44,
+                        y: 20,
+                        titleSize: 20,
+                        titleColor: '#fff',
+                        backSize: 44,
+                        backImg: 'fs://img/back.png',
+                        customButtons: [],
+                    },
+                    foot: {
+                        bg: 'rgba(0.5,0.5,0.5,0.7)',
+                        height: 44,
+                        playSize: 44,
+                        playImg: 'fs://img/paly.png',
+                        pauseImg: 'fs://img/pause.png',
+                        timeSize: 14,
+                        timeColor: '#fff',
+                        sliderImg: 'fs://img/slder.png',
+                        progressColor: '#696969',
+                        progressSelected: '#76EE00',
+                        verticalImg: '',
+                        horizontalImg: '',
+
+                    }
+                },
+                path: 'http://113.57.128.2:7999/live/ch_10760/iptvx650cboy.m3u8', //（可选项）字符串类型；文档的路径，支持网络和本地（fs://）路径；默认：未传值时不播放
+                //在 android 平台上不支持 widget://
+                autoPlay: true //（可选项）布尔类型；打开时是否自动播放；默认：true（自动播放）
+            }, function(ret, err) {
+                if (ret) {
+                    alert(JSON.stringify(ret));
+                } else {
+                    alert(JSON.stringify(err));
+                }
+            });
+        }
+
+        function fnPlay3() {
+            var videoPlayer = api.require('videoPlayer');
+            videoPlayer.play({
+                texts: {
+                    head: {
+                        title: '顶部文字'
+                    }
+                },
+                styles: {
+                    head: {
+                        bg: 'rgba(0.5,0.5,0.5,0.7)',
+                        height: 44,
+                        titleSize: 16,
+                        titleColor: '#fff',
+                        backSize: 20,
+                        backImg: 'widget://image/back.png',
+                        setSize: 20,
+                        setImg: 'widget://image/set.png'
+                    },
+
+                },
+                // path: 'http://resource.apicloud.com/video/apicloud3.mp4',
+                path: 'http://113.57.128.2:7999/live/ch_29520/iptvx650cboy.m3u8',
+
+
+                autoPlay: true
+            }, function(ret, err) {
+                // //
+                if (ret) {
+                    // //
+                } else {
+                    // alert(JSON.stringify(err));
+                }
+            });
+        }
+
+        function fnPlay5() {
+            var videoPlayer = api.require('videoPlayer');
+            videoPlayer.play({
+                texts: {
+                    head: {
+                        title: '顶部文字'
+                    }
+                },
+                styles: {
+                    head: {
+                        bg: 'rgba(0.5,0.5,0.5,0.7)',
+                        height: 44,
+                        titleSize: 16,
+                        titleColor: '#fff',
+                        backSize: 20,
+                        backImg: 'widget://image/back.png',
+                        setSize: 20,
+                        setImg: 'widget://image/set.png'
+                    },
+
+                },
+                // path: 'http://resource.apicloud.com/video/apicloud3.mp4',
+                path: 'http://113.57.128.2:7999/live/ch_3902/iptvx650cboy.m3u8',
+
+
+                autoPlay: true
+            }, function(ret, err) {
+                // //
+                if (ret) {
+                    // //
+                } else {
+                    // alert(JSON.stringify(err));
+                }
+            });
+        }
+
+        function fnPlay7() {
+            var videoPlayer = api.require('videoPlayer');
+            videoPlayer.play({
+                texts: {
+                    head: {
+                        title: '顶部文字'
+                    }
+                },
+                styles: {
+                    head: {
+                        bg: 'rgba(0.5,0.5,0.5,0.7)',
+                        height: 44,
+                        titleSize: 16,
+                        titleColor: '#fff',
+                        backSize: 20,
+                        backImg: 'widget://image/back.png',
+                        setSize: 20,
+                        setImg: 'widget://image/set.png'
+                    },
+
+                },
+                // path: 'http://resource.apicloud.com/video/apicloud3.mp4',
+                path: 'http://113.57.128.2:7999/live/ch_7711/iptvx650cboy.m3u8',
+
+
+                autoPlay: true
+            }, function(ret, err) {
+                // //
+                if (ret) {
+                    // //
+                } else {
+                    // alert(JSON.stringify(err));
+                }
+            });
+        }
+
+        function fnPlay9() {
+            var videoPlayer = api.require('videoPlayer');
+            videoPlayer.play({
+                texts: {
+                    head: {
+                        title: '顶部文字'
+                    }
+                },
+                styles: {
+                    head: {
+                        bg: 'rgba(0.5,0.5,0.5,0.7)',
+                        height: 44,
+                        titleSize: 16,
+                        titleColor: '#fff',
+                        backSize: 20,
+                        backImg: 'widget://image/back.png',
+                        setSize: 20,
+                        setImg: 'widget://image/set.png'
+                    },
+
+                },
+                // path: 'http://resource.apicloud.com/video/apicloud3.mp4',
+                path: 'http://113.57.128.2:7999/live/ch_5705/iptvx650cboy.m3u8',
+
+
+                autoPlay: true
+            }, function(ret, err) {
+                // //
+                if (ret) {
+                    // //
+                } else {
+                    // alert(JSON.stringify(err));
+                }
+            });
+        }
+
+        function fnPlay11() {
+            var videoPlayer = api.require('videoPlayer');
+            videoPlayer.play({
+                texts: {
+                    head: {
+                        title: '顶部文字'
+                    }
+                },
+                styles: {
+                    head: {
+                        bg: 'rgba(0.5,0.5,0.5,0.7)',
+                        height: 44,
+                        titleSize: 16,
+                        titleColor: '#fff',
+                        backSize: 20,
+                        backImg: 'widget://image/back.png',
+                        setSize: 20,
+                        setImg: 'widget://image/set.png'
+                    },
+
+                },
+                // path: 'http://resource.apicloud.com/video/apicloud3.mp4',
+                path: 'http://113.57.128.2:7999/live/ch_4827/iptvx650cboy.m3u8',
+
+
+                autoPlay: true
+            }, function(ret, err) {
+                //
+                if (ret) {
+                    //
+                } else {
+                    alert(JSON.stringify(err));
+                }
+            });
+        }
+
+        function fnPlay13() {
+            var videoPlayer = api.require('videoPlayer');
+            videoPlayer.play({
+                texts: {
+                    head: {
+                        title: '顶部文字'
+                    }
+                },
+                styles: {
+                    head: {
+                        bg: 'rgba(0.5,0.5,0.5,0.7)',
+                        height: 44,
+                        titleSize: 16,
+                        titleColor: '#fff',
+                        backSize: 20,
+                        backImg: 'widget://image/back.png',
+                        setSize: 20,
+                        setImg: 'widget://image/set.png'
+                    },
+
+                },
+                // path: 'http://resource.apicloud.com/video/apicloud3.mp4',
+                path: 'http://113.57.128.2:7999/live/ch_20037/iptvx650cboy.m3u8',
+
+
+                autoPlay: true
+            }, function(ret, err) {
+                //
+                if (ret) {
+                    // //
+                } else {
+                    // alert(JSON.stringify(err));
+                }
+            });
+        }
+
+        function fnPlay15() {
+            var videoPlayer = api.require('videoPlayer');
+            videoPlayer.play({
+                texts: {
+                    head: {
+                        title: '顶部文字'
+                    }
+                },
+                styles: {
+                    head: {
+                        bg: 'rgba(0.5,0.5,0.5,0.7)',
+                        height: 44,
+                        titleSize: 16,
+                        titleColor: '#fff',
+                        backSize: 20,
+                        backImg: 'widget://image/back.png',
+                        setSize: 20,
+                        setImg: 'widget://image/set.png'
+                    },
+
+                },
+                // path: 'http://resource.apicloud.com/video/apicloud3.mp4',
+                path: 'http://113.57.128.2:7999/live/ch_14604/iptvx650cboy.m3u8',
+
+
+                autoPlay: true
+            }, function(ret, err) {
+                //
+                if (ret) {
+                    // //
+                } else {
+                    // alert(JSON.stringify(err));
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style>
+    body,html{
+        background-color: rgba(0, 0, 0, 0.1);
+        animation: moveLeft 0.5s;
+        -moz-animation: moveLeft 0.5s;	/* Firefox */
+        -webkit-animation: moveLeft 0.5s;	/* Safari 和 Chrome */
+        -o-animation: moveLeft 0.5s;	/* Opera */
+        animation-delay: 2.0s;
+        animation-fill-mode: forwards;/* 最后一帧 */
+      }
+      @keyframes moveLeft {
+          0% {background-color: rgba(0, 0, 0, 0.1);}
+          100% {background-color: rgba(0, 0, 0, 0);}
+      }
+      .aui-bar-nav{
+        position: absolute;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      footer{
+        position: absolute;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        width: 100%;
+        height: 2.4rem;
+        color: #fff;
+        text-align:center;
+      }
+      footer>div{
+        -webkit-flex: 2
+        height: 2.4rem;
+        line-height: 2.4rem;
+        width: 15%
+      }
+      footer>.progress{
+        -webkit-flex: 6;
+        width: 70%;
+        padding: 0.6rem;
+        padding-top: 1.1rem;
+      }
+      .footer-leave{
+        animation: leaveBottom 1s;
+        -moz-animation: leaveBottom 1s;	/* Firefox */
+        -webkit-animation: leaveBottom 1s;	/* Safari 和 Chrome */
+        -o-animation: leaveBottom 1s;	/* Opera */
+        animation-delay: 2.0s;
+        animation-fill-mode: forwards;/* 最后一帧 */
+      }
+      .footer-come{
+        animation: comeBottom 1s;
+        -moz-animation: comeBottom 1s;	/* Firefox */
+        -webkit-animation: comeBottom 1s;	/* Safari 和 Chrome */
+        -o-animation: comeBottom 1s;	/* Opera */
+        animation-fill-mode: forwards;/* 最后一帧 */
+      }
+      .header-leave{
+        animation: leaveTop 1s;
+        -moz-animation: leaveTop 1s;	/* Firefox */
+        -webkit-animation: leaveTop 1s;	/* Safari 和 Chrome */
+        -o-animation: leaveTop 1s;	/* Opera */
+        animation-delay: 2.0s;
+        animation-fill-mode: forwards;/* 最后一帧 */
+      }
+      .header-come{
+        animation: comeTop 1s;
+        -moz-animation: comeTop 1s;	/* Firefox */
+        -webkit-animation: comeTop 1s;	/* Safari 和 Chrome */
+        -o-animation: comeTop 1s;	/* Opera */
+        animation-fill-mode: comeTop;/* 最后一帧 */
+      }
+      @keyframes leaveBottom {
+          0% {transform: translateY(0);}
+          100% {transform: translateY(2.4rem);}
+      }
+      @keyframes comeBottom {
+          0% {transform: translateY(2.4rem);}
+          100% {transform: translateY(0);}
+      }
+      @keyframes leaveTop {
+          0% {transform: translateY(0);}
+          100% {transform: translateY(-2.4rem);}
+      }
+      @keyframes comeTop {
+          0% {transform: translateY(-2.4rem);}
+          100% {transform: translateY(0);}
+      }
+      .video-body{
+        width: 100%;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        color: #fff;
+      }
+      .video-body>span{
+        display: inline-block;
+        background-color: rgba(0, 0, 0, 0.4);
+        width: 2.8rem;
+        height: 2.8rem;
+        font-size: 1.4rem;
+        text-align: center;
+        line-height: 2.8rem;
+        border-radius: 50%;
+      }
+      .body-leave{
+        animation: bodyLeave 1s;
+        -moz-animation: bodyLeave 1s;	/* Firefox */
+        -webkit-animation: bodyLeave 1s;	/* Safari 和 Chrome */
+        -o-animation: bodyLeave 1s;	/* Opera */
+        animation-delay: 2.0s;
+        animation-fill-mode: forwards;/* 最后一帧 */
+      }
+      .body-come{
+        animation: bodyCome 1s;
+        -moz-animation: bodyCome 1s;	/* Firefox */
+        -webkit-animation: bodyCome 1s;	/* Safari 和 Chrome */
+        -o-animation: bodyCome 1s;	/* Opera */
+        animation-fill-mode: forwards;/* 最后一帧 */
+      }
+      @keyframes bodyLeave {
+          0% {opacity: 1}
+          100% {opacity: 0;}
+      }
+      @keyframes bodyCome {
+          0% {opacity: 0;}
+          100% {opacity: 1;}
+      }
+    </style>
+</head>
+
+<body>
+  <header class="aui-bar aui-bar-nav header-leave">
+      <div class="aui-pull-left aui-btn">
+          <span class="aui-iconfont aui-icon-left"></span>
+      </div>
+      <div class="aui-pull-right aui-btn">
+          <span class="aui-iconfont aui-icon-more"></span>
+      </div>
+  </header>
+  <div class="video-body body-leave">
+    <span id='full' class="aui-iconfont aui-icon-video">test</span>
+  </div>
+  <footer class="footer-leave">
+    <div>
+      <span>1:30</span>
+    </div>
+    <div class="progress">
+      <div class="aui-progress aui-progress-xxs">
+          <div class="aui-progress-bar" style="width: 60%;"></div>
+      </div>
+    </div>
+    <div>
+      <span class="aui-iconfont aui-icon-right"></span>
+    </div>
+    <div>
+      <span class="aui-iconfont aui-icon-plus">ssss</span>
+    </div>
+  </footer>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+var timer;
+  apiready = function(){
+    $api.addEvt($api.byId('full'),'click',function(){
+    });
+
+
+    api.addEventListener({
+        name:'tap'
+    }, function(ret, err){
+       $api.removeCls($api.dom('footer'), 'footer-leave');
+       $api.removeCls($api.dom('header'), 'header-leave');
+       $api.removeCls($api.dom('.video-body'), 'body-leave');
+       $api.addCls($api.dom('footer'), 'footer-come');
+       $api.addCls($api.dom('header'), 'header-come');
+       $api.addCls($api.dom('.video-body'), 'body-come');
+       clearTimeout(timer);
+       timer = setTimeout(function(){
+         $api.removeCls($api.dom('footer'), 'footer-come');
+         $api.removeCls($api.dom('header'), 'header-come');
+         $api.removeCls($api.dom('.video-body'), 'body-come');
+         $api.addCls($api.dom('footer'), 'footer-leave');
+         $api.addCls($api.dom('header'), 'header-leave');
+         $api.addCls($api.dom('.video-body'), 'body-leave');
+       },2000);
+    });
+  };
+</script>
+
+</html>

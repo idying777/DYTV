@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>文档</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <style>
+        .empty {
+            text-align: center;
+            padding: 120px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" name="button" onclick="search()">搜索</button>
+    <button type="button" name="button" onclick="start()">开始</button>
+    <button type="button" name="button" onclick="stop()">退出</button>
+    <button type="button" name="button" onclick="pause()">暂停</button>
+    <button type="button" name="button" onclick="play()">播放</button>
+    <button type="button" name="button" onclick="seek()">设置进度</button>
+    <button type="button" name="button" onclick="volume()">设置音量</button>
+    <button type="button" name="button" onclick="playUrl()">切换地址</button>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+
+    apiready = function() {
+        var obj = api.require('dlna');
+      };
+
+        function search() {
+          var obj = api.require('dlna');
+            obj.startSearch(function(ret, err) {
+                alert(JSON.stringify(ret));
+            });
+        }
+
+        function start() {
+          var obj = api.require('dlna');
+            obj.startDLNA({
+                xh: 0,
+                url: 'http://113.57.128.2:7999/live/ch_4827/iptvx650cboy.m3u8'
+            }, function(ret, err) {
+                alert(JSON.stringify(ret) + " " + JSON.stringify(err));
+            });
+        }
+
+        function stop() {
+          var obj = api.require('dlna');
+            obj.stopDLNA({
+                bizToken: '',
+            }, function(ret, err) {
+                alert(JSON.stringify(ret));
+            });
+        }
+
+        function pause() {
+          var obj = api.require('dlna');
+            obj.pause(function(ret, err) {
+                alert(JSON.stringify(ret));
+            });
+        }
+
+        function play() {
+          var obj = api.require('dlna');
+            obj.play(function(ret, err) {
+                alert(JSON.stringify(ret));
+            });
+        }
+
+        function seek() {
+          var obj = api.require('dlna');
+            obj.seek({
+                process: 22,
+            }, function(ret, err) {
+                alert(JSON.stringify(ret));
+            });
+        }
+
+        function volume() {
+          var obj = api.require('dlna');
+            obj.volume({
+                volume: 20
+            }, function(ret, err) {
+                alert(JSON.stringify(ret));
+            });
+        }
+
+        function playUrl() {
+          var obj = api.require('dlna');
+
+        }
+
+
+
+</script>
+</html>

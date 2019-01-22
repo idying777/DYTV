@@ -22,6 +22,14 @@
           0% {background-color: rgba(0, 0, 0, 0.1);}
           100% {background-color: rgba(0, 0, 0, 0);}
       }
+      .np {
+          background: #eee;
+          font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+          font-size: 14px;
+          color: #000;
+          margin: 0;
+          padding: 0;
+      }
       .aui-bar-nav{
         position: absolute;
         top: 0;
@@ -149,11 +157,22 @@
 
   <div class="video-body body-leave">
     <button id="butoup" type="button" onclick="start()" class="itembtn"></button>
-    <span id='full' class="aui-iconfont aui-icon-video"></span>
+
   </div>
-  <!-- <footer class="footer-leave">
+  <!-- <div class="np">
+                  <div class="swiper-container">
+                      <div class="swiper-wrapper">
+
+                          <div class="swiper-slide ">
+                              <img src='./menu/quanzi.png'></img>
+                          </div>
+                      </div>
+
+                  </div>
+    </div> -->
+  <footer class="footer-leave">
     <div>
-      <span>1:30</span>
+      <span id='search' class="aui-iconfont aui-icon-video"></span>
     </div>
     <div class="progress">
       <div class="aui-progress aui-progress-xxs">
@@ -161,28 +180,34 @@
       </div>
     </div>
     <div>
-      <span class="aui-iconfont aui-icon-right"></span>
+
+      <img id='toupin' src='../image/toupin.png' height="50" width="50"></img>
     </div>
-    <div>
-      <span class="aui-iconfont aui-icon-plus"></span>
-    </div>
-  </footer> -->
+  </footer>
 </body>
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
 
 var toupele = $api.byId('butoup');
 var timer;
+var videoPlayer;
   apiready = function(){
 
-
-      var obj = api.require('dlna');
-    $api.addEvt($api.byId('full'),'click',function(){
+    api.execScript({
+        frameName: 'video',
+        script: 'fnvFull();'
+    });
+    var obj = api.require('dlna');
+    $api.addEvt($api.byId('search'),'click',function(){
       search();
     });
     $api.addEvt($api.byId('backid'),'click',function(){
       back();
     });
+    $api.addEvt($api.byId('toupin'), 'click', function(){
+      start();
+    });
+
 
 
     api.addEventListener({
@@ -207,27 +232,30 @@ var timer;
   };
   function back() {
       api.execScript({
-          frameName: 'frame3',
+          frameName: 'video',
           script: 'fnvBack();'
       });
 
   }
-  // function touping(){
-  //   if ($api.hasCls(toupele, 'itembtn')) {
-  //     var obj = api.require('dlna');
-  //     obj.startSearch(function(ret, err) {
-  //          alert("搜索到设备");
-  //     });
-  //       search();
-  //       start();
-  //   } else {
-  //       stop()
-  //   }
-  // }
+  function touping(){
+    if ($api.hasCls(toupele, 'itembtn')) {
+      var obj = api.require('dlna');
+      obj.startSearch(function(ret, err) {
+           alert("搜索到设备");
+      });
+        search();
+        start();
+    } else {
+        stop()
+    }
+  }
   function search() {
     var obj = api.require('dlna');
       obj.startSearch(function(ret, err) {
-           alert(JSON.stringify(ret));
+        if(ret){
+          var backName = ret.data[0].name
+          alert('找到【'+backName+'】设备');
+        }
       });
     // var player = api.pageParam.player
     // player.pause();
@@ -235,13 +263,11 @@ var timer;
 
   function start() {
     var path = api.pageParam.video_path
-    alert(path)
     var obj = api.require('dlna');
       obj.startDLNA({
           xh: 0,
           url: path
       }, function(ret, err) {
-        alert(JSON.stringify(ret) + " " + JSON.stringify(err));
 
           // alert(JSON.stringify(ret) + " " + JSON.stringify(err));
           });
