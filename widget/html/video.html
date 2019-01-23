@@ -17,6 +17,7 @@
 <script type="text/javascript" src="../script/api.js"></script>
 <script type="text/javascript">
   apiready = function(){
+
     var path = api.pageParam.video_path
     videoPlayer = api.require('videoPlayer');
     videoPlayer.open({
@@ -34,11 +35,13 @@
         fixedOn: api.frameName,
         fixed: false
     }, function(ret, err) {
-        if (ret.status) {
-            fnOpenUIframe();
-        } else {
-            console.log(JSON.stringify(err));
-        }
+
+      if(ret){
+        fnOpenUIframe();
+      }
+      else{
+        alert("false")
+      }
     });
     // videoPlayer.fullScreen();
   }
